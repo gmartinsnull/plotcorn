@@ -16,7 +16,7 @@ export function Rating(props: { rating: number }) {
   } else if (props.rating > 0 && props.rating < 1) {
     return (
       <div>
-        <StarHalfIcon className="h-5 w-5" />
+        <StarHalfIcon className="h-5 w-5 text-yellow-500" />
         <StarBorderIcon className="h-5 w-5" />
         <StarBorderIcon className="h-5 w-5" />
         <StarBorderIcon className="h-5 w-5" />
@@ -26,7 +26,7 @@ export function Rating(props: { rating: number }) {
   } else if (props.rating > 1 && props.rating < 2) {
     return (
       <div>
-        <StarRateIcon className="h-5 w-5" />
+        <StarRateIcon className="h-5 w-5 text-yellow-500" />
         <StarBorderIcon className="h-5 w-5" />
         <StarBorderIcon className="h-5 w-5" />
         <StarBorderIcon className="h-5 w-5" />
@@ -36,8 +36,8 @@ export function Rating(props: { rating: number }) {
   } else if (props.rating > 2 && props.rating < 3) {
     return (
       <div>
-        <StarRateIcon className="h-5 w-5" />
-        <StarRateIcon className="h-5 w-5" />
+        <StarRateIcon className="h-5 w-5 text-yellow-500" />
+        <StarRateIcon className="h-5 w-5 text-yellow-500" />
         <StarBorderIcon className="h-5 w-5" />
         <StarBorderIcon className="h-5 w-5" />
         <StarBorderIcon className="h-5 w-5" />
@@ -46,9 +46,9 @@ export function Rating(props: { rating: number }) {
   } else if (props.rating > 3 && props.rating < 4) {
     return (
       <div>
-        <StarRateIcon className="h-5 w-5" />
-        <StarRateIcon className="h-5 w-5" />
-        <StarRateIcon className="h-5 w-5" />
+        <StarRateIcon className="h-5 w-5 text-yellow-500" />
+        <StarRateIcon className="h-5 w-5 text-yellow-500" />
+        <StarRateIcon className="h-5 w-5 text-yellow-500" />
         <StarBorderIcon className="h-5 w-5" />
         <StarBorderIcon className="h-5 w-5" />
       </div>
@@ -56,21 +56,21 @@ export function Rating(props: { rating: number }) {
   }  else if (props.rating > 4 && props.rating < 5) {
     return (
       <div>
-        <StarRateIcon className="h-5 w-5" />
-        <StarRateIcon className="h-5 w-5" />
-        <StarRateIcon className="h-5 w-5" />
-        <StarRateIcon className="h-5 w-5" />
+        <StarRateIcon className="h-5 w-5 text-yellow-500" />
+        <StarRateIcon className="h-5 w-5 text-yellow-500" />
+        <StarRateIcon className="h-5 w-5 text-yellow-500" />
+        <StarRateIcon className="h-5 w-5 text-yellow-500" />
         <StarBorderIcon className="h-5 w-5" />
       </div>
     );
   } else if (props.rating >= 5) {
     return (
       <div>
-        <StarRateIcon className="h-5 w-5" />
-        <StarRateIcon className="h-5 w-5" />
-        <StarRateIcon className="h-5 w-5" />
-        <StarRateIcon className="h-5 w-5" />
-        <StarRateIcon className="h-5 w-5" />
+        <StarRateIcon className="h-5 w-5 text-yellow-500" />
+        <StarRateIcon className="h-5 w-5 text-yellow-500" />
+        <StarRateIcon className="h-5 w-5 text-yellow-500" />
+        <StarRateIcon className="h-5 w-5 text-yellow-500" />
+        <StarRateIcon className="h-5 w-5 text-yellow-500" />
       </div>
     );
   } 
