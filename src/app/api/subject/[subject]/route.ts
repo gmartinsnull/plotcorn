@@ -12,7 +12,7 @@ export async function GET(
 ) {
   const subject = params.subject;
   const res = await fetch(
-    `https://openlibrary.org/search.json?subject=${subject}&sort=rating`,
+    `https://openlibrary.org/search.json?subject=${subject}&sort=rating&limit=5`,
     {
       headers: {
         "Content-Type": "application/json",
