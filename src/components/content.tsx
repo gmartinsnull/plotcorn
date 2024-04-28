@@ -4,6 +4,7 @@ import { useAppContext } from "@/app/context/CategoryContext";
 import { Book } from "@/types/book";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { Rating } from "./rating";
 
 function Spinner() {
   return (
@@ -29,21 +30,21 @@ function Spinner() {
 }
 
 export function Content() {
-  const { catValue } = useAppContext();
+  const { categoryValue } = useAppContext();
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (catValue) {
+    if (categoryValue) {
       setLoading(true);
-      fetch(`/api/subject/${catValue}`, { cache: "no-store" })
+      fetch(`/api/subject/${categoryValue}`, { cache: "no-store" })
         .then((res) => res.json())
         .then((data) => {
           setBooks(data);
           setLoading(false);
         });
     }
-  }, [catValue]);
+  }, [categoryValue]);
 
   if (loading) {
     return <Spinner />;
@@ -64,9 +65,9 @@ export function Content() {
             width={200}
             height={300}
           />
-          <div className="h-1/5 content-end p-2 text-white">
+          <div className="h-1/5 content-end px-1 text-white">
             <p>{book.title}</p>
-            <p>{book.rating}</p>
+            <Rating rating={book.rating} />
           </div>
         </div>
       ))}

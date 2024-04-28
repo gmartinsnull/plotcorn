@@ -1,4 +1,4 @@
-import { Content } from "@/components/ui/content";
+import { Content } from "@/components/content";
 
 export default async function Page() {
   return (

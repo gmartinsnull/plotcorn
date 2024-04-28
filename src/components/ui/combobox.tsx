@@ -22,21 +22,10 @@ import {
 import { subjects } from "@/components/ui/subjects";
 import { useAppContext } from "@/app/context/CategoryContext";
 
-
-
-// interface ComboboxCategoryProps {
-//   onValueChange: (value: string) => void;
-// }
-
 export function ComboboxCategory() {
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState("");
-  const { catValue, setCatValue } = useAppContext();
-
-  // function handleValue(value: string) {
-  //   setValue(value);
-  //   props.onValueChange(value);
-  // }
+  const { categoryValue, setCategoryValue } = useAppContext();
 
   const categories = subjects.sort((a, b) => a.value.localeCompare(b.value));
 
@@ -72,8 +61,7 @@ export function ComboboxCategory() {
                       currentValue === value ? "" : currentValue;
                     setValue(selectedValue);
                     setOpen(false);
-                    console.log("selectedValue: ", catValue);
-                    setCatValue(selectedValue);
+                    setCategoryValue(selectedValue);
                   }}
                 >
                   <Check

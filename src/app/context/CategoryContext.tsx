@@ -8,10 +8,10 @@ export function AppContextProvider({
 }: {
   children: React.ReactNode;
 }) {
-  let [catValue, setCatValue] = useState("");
+  let [categoryValue, setCategoryValue] = useState("");
 
   return (
-    <AppContext.Provider value={{ catValue, setCatValue }}>
+    <AppContext.Provider value={{ categoryValue, setCategoryValue }}>
       {children}
     </AppContext.Provider>
   );
