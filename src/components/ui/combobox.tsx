@@ -1,6 +1,6 @@
 "use client";
 
-import * as React from "react";
+import { useState } from "react";
 import { Check, ChevronsUpDown } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -20,12 +20,13 @@ import {
 } from "@/components/ui/popover";
 
 import { subjects } from "@/components/ui/subjects";
-import { useAppContext } from "@/app/context/CategoryContext";
+import { useRouter } from "next/navigation";
 
 export function ComboboxCategory() {
-  const [open, setOpen] = React.useState(false);
-  const [value, setValue] = React.useState("");
-  const { categoryValue, setCategoryValue } = useAppContext();
+  const [open, setOpen] = useState(false);
+  const [value, setValue] = useState("");
+
+  const router = useRouter();
 
   const categories = subjects.sort((a, b) => a.value.localeCompare(b.value));
 
@@ -61,7 +62,8 @@ export function ComboboxCategory() {
                       currentValue === value ? "" : currentValue;
                     setValue(selectedValue);
                     setOpen(false);
-                    setCategoryValue(selectedValue);
+
+                    router.push(`/subject/${selectedValue}`);
                   }}
                 >
                   <Check

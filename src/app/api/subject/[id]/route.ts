@@ -7,10 +7,10 @@ export async function GET(
   {
     params,
   }: {
-    params: { subject: string };
+    params: { id: string };
   }
 ) {
-  const subject = params.subject;
+  const subject = params.id;
   const res = await fetch(
     `https://openlibrary.org/search.json?subject=${subject}&sort=rating&limit=5`,
     {
