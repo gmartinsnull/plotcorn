@@ -51,7 +51,7 @@ export function ComboboxCategory() {
         <Command>
           <CommandInput placeholder="Search category..." />
           <CommandList>
-            <CommandEmpty>No department found.</CommandEmpty>
+            <CommandEmpty>No category found.</CommandEmpty>
             <CommandGroup>
               {subjects.map((category) => (
                 <CommandItem

@@ -260,10 +260,6 @@ export const subjects = [
     label: "Autobiography",
   },
   {
-    value: "history",
-    label: "History",
-  },
-  {
     value: "politics_and_government",
     label: "Politics and Government",
   },
@@ -314,14 +310,6 @@ export const subjects = [
   {
     value: "text_books",
     label: "Text Books",
-  },
-  {
-    value: "history",
-    label: "History",
-  },
-  {
-    value: "ancient_civilization",
-    label: "Ancient Civilization",
   },
   {
     value: "algebra",
