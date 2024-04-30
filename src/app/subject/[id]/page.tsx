@@ -1,6 +1,7 @@
 import { Book } from "@/types/book";
 import Image from "next/image";
 import { Rating } from "@/components/rating";
+import Link from "next/link";
 
 export default async function Page({
   params: { id },
@@ -18,14 +19,18 @@ export default async function Page({
           key={index}
           className="flex h-96 w-48 flex-col justify-between rounded bg-neutral-800"
         >
-          <Image
-            className="h-4/5 w-full rounded"
-            src={book.coverUrl}
-            style={{ objectFit: "contain" }}
-            alt={book.title}
-            width={200}
-            height={300}
-          />
+          <Link
+            href={`/item/${book.id}?title=${book.title}&author=${book.author}&year=${book.year}&pages=${book.pages}&rating=${book.rating}&coverUrl=${book.coverUrl}`}
+          >
+            <Image
+              className="h-4/5 w-full rounded"
+              src={book.coverUrl}
+              style={{ objectFit: "contain" }}
+              alt={book.title}
+              width={200}
+              height={300}
+            />
+          </Link>
           <div className="h-1/5 content-end px-1 text-white">
             <p>{book.title}</p>
             <Rating rating={book.rating} />
