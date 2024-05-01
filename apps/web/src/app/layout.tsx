@@ -11,19 +11,21 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
+  modal,
   children,
 }: Readonly<{
+  modal: React.ReactNode;
   children: React.ReactNode;
 }>) {
   return (
     <html lang="en">
       <body className={`sans-serif ${inter.className}`}>
-        <div className="grid h-screen grid-rows-[auto_1fr]">
+        <div className="grid grid-rows-[auto_1fr]">
           <TopNav />
-          <main className="overflow-y-scroll">
-            {children}
-          </main>
+          {children}
+          {modal}
         </div>
+        <div id="modal-root" />
       </body>
     </html>
   );

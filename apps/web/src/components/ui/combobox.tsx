@@ -29,6 +29,7 @@ export function ComboboxCategory() {
   const router = useRouter();
 
   const categories = subjects.sort((a, b) => a.value.localeCompare(b.value));
+  
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -51,7 +52,7 @@ export function ComboboxCategory() {
         <Command>
           <CommandInput placeholder="Search category..." />
           <CommandList>
-            <CommandEmpty>No department found.</CommandEmpty>
+            <CommandEmpty>No category found.</CommandEmpty>
             <CommandGroup>
               {subjects.map((category) => (
                 <CommandItem

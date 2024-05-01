@@ -23,7 +23,7 @@ export async function GET(
   const items: Doc[] = await res.json().then((json) => json.docs);
 
   const books: Book[] = items.map((item) => ({
-    id: item.key,
+    id: item.key.substring(item.key.lastIndexOf("/") + 1),
     title: item.title,
     coverUrl: `https://covers.openlibrary.org/b/id/${item.cover_i}-M.jpg`,
     author: item.author_name,

@@ -66,6 +66,32 @@
   }
 }
 
+.close-button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 48px;
+  height: 48px;
+  background-color: white;
+  border: none;
+  border-radius: 15px; /* Circular shape */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 24px; /* Adjust font size as needed */
+}
+
+.close-button:hover {
+  background-color: #eee;
+}
+
+.close-button:after {
+  content: 'x';
+  color: black;
+}
+
 .spinner_ajPY {
   transform-origin: center;
   animation: spinner_AtaB 0.75s infinite linear;
