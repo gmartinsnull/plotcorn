@@ -1,0 +1,50 @@
+import { View, Text, FlatList } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { useState } from "react";
+import { Searchbar } from "react-native-paper";
+import ListItem from "@/components/ListItem";
+import { subjects } from "subjects-pkg";
+import { getBooksBySubject } from "@/api/books-api";
+
+export default function App() {
+  const [subject, setSubject] = useState("");
+  const [items, setItems] = useState(subjects);
+
+  const searchItem = (query) => {
+    if (query.length < 3) {
+      setSubject(query);
+      setItems(subjects);
+      return;
+    }
+    setSubject(query);
+    setItems(items.filter((item) => item.label.includes(query)));
+  };
+
+  const handleSelected = async (value) => {
+    setSubject(value);
+    const result = await getBooksBySubject(value.toLowerCase());
+  };
+
+  return (
+    <SafeAreaView className="h-full">
+      <View className="items-center px-4 bg-black">
+        <Text className="font-bold my-7 text-2xl text-white">
+          Select a subject:
+        </Text>
+        <Searchbar
+          className="mb-5"
+          placeholder="Search a subject"
+          onChangeText={(item) => searchItem(item)}
+          value={subject}
+        />
+      </View>
+      <FlatList
+        data={items.sort((a, b) => a.label.localeCompare(b.label))}
+        keyExtractor={(item) => item.value}
+        renderItem={({ item }) => (
+          <ListItem title={item.label} selected={handleSelected} />
+        )}
+      />
+    </SafeAreaView>
+  );
+}
