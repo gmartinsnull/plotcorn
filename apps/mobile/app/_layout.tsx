@@ -35,6 +35,10 @@ const RootLayout = () => {
       <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
         <Stack>
           <Stack.Screen name="index" options={{ headerShown: false }} />
+          <Stack.Screen
+            name="search/[subject]"
+            options={{ headerShown: false }}
+          />
         </Stack>
       </ThemeProvider>
     </PaperProvider>

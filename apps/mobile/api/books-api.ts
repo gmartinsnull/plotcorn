@@ -1,4 +1,4 @@
-export const getBooksBySubject = async (subject: string) => {
+export const getBooksBySubject = async (subject) => {
   const url = `${process.env.EXPO_PUBLIC_API_URL}/subject/${subject}`;
 
   try {
