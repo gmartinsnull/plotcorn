@@ -20,11 +20,6 @@ export default function App() {
     setItems(items.filter((item) => item.label.includes(query)));
   };
 
-  const handleSelected = async (value) => {
-    setSubject(value);
-    router.push(`/search/${value}`);
-  };
-
   return (
     <SafeAreaView className="h-full">
       <View className="items-center bg-black px-4">
@@ -41,11 +36,12 @@ export default function App() {
       <FlatList
         data={items.sort((a, b) => a.label.localeCompare(b.label))}
         keyExtractor={(item) => item.value}
+        keyboardShouldPersistTaps="handled"
         renderItem={({ item }) => (
           <ListItem
             title={item.label}
             selected={() => {
-              handleSelected(item.value);
+              router.push(`/search/${item.value}`);
             }}
           />
         )}

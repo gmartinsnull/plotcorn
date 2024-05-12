@@ -29,7 +29,6 @@ const Search = () => {
   };
 
   const handleClick = (book: Book) => {
-    console.log(book);
     setModalData(book);
     setModalVisible(true);
   };

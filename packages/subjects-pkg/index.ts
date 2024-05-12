@@ -124,7 +124,7 @@ export const subjects = [
     label: "Thriller",
   },
   {
-    value: "young_adult",
+    value: "young_adult_fiction",
     label: "Young Adult",
   },
   {
@@ -148,10 +148,6 @@ export const subjects = [
     label: "Physics",
   },
   {
-    value: "psychology",
-    label: "Psychology",
-  },
-  {
     value: "programming",
     label: "Programming",
   },
@@ -164,7 +160,7 @@ export const subjects = [
     label: "Management",
   },
   {
-    value: "enterpreneurship",
+    value: "entrepreneurship",
     label: "Entrepreneurship",
   },
   {
@@ -172,7 +168,7 @@ export const subjects = [
     label: "Business Economics",
   },
   {
-    value: "business_success",
+    value: "success_in_business",
     label: "Business Success",
   },
   {
@@ -184,7 +180,7 @@ export const subjects = [
     label: "Children",
   },
   {
-    value: "kids_books",
+    value: "juvenile_literature",
     label: "Kids Books",
   },
   {
@@ -192,11 +188,11 @@ export const subjects = [
     label: "Stories in Rhyme",
   },
   {
-    value: "baby_books",
+    value: "infancy",
     label: "Baby Books",
   },
   {
-    value: "bedtime_books",
+    value: "bedtime",
     label: "Bedtime Books",
   },
   {
@@ -248,7 +244,7 @@ export const subjects = [
     label: "Nutrition",
   },
   {
-    value: "self_help",
+    value: "self-help",
     label: "Self Help",
   },
   {
@@ -288,8 +284,8 @@ export const subjects = [
     label: "Political Science",
   },
   {
-    value: "phsycology",
-    label: "Phsycology",
+    value: "psychology",
+    label: "Psychology",
   },
   {
     value: "brazil",
@@ -308,8 +304,8 @@ export const subjects = [
     label: "United States",
   },
   {
-    value: "text_books",
-    label: "Text Books",
+    value: "textbooks",
+    label: "Textbooks",
   },
   {
     value: "algebra",
