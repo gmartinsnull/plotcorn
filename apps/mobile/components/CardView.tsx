@@ -1,5 +1,6 @@
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import React from "react";
+import { StartRating } from "./StarRating";
 
 const CardView = ({ title, rating, coverUrl, onClick }) => {
   return (
@@ -15,7 +16,7 @@ const CardView = ({ title, rating, coverUrl, onClick }) => {
           className="h-full w-full flex-1"
         />
         <Text className="ml-2 text-sm">{title}</Text>
-        <Text className="ml-2 text-sm">{rating}</Text>
+        <StartRating rating={rating} styles="ml-2"/>
       </TouchableOpacity>
     </View>
   );
