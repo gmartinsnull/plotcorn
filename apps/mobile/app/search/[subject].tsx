@@ -1,4 +1,4 @@
-import { View, Text, Alert, FlatList } from "react-native";
+import { View, Alert, FlatList } from "react-native";
 import { useLocalSearchParams } from "expo-router";
 import { getBooksBySubject } from "@/api/books-api";
 import { ActivityIndicator, MD2Colors } from "react-native-paper";
@@ -7,17 +7,21 @@ import { Book } from "subjects-pkg/Book";
 
 import { SafeAreaView } from "react-native-safe-area-context";
 import CardView from "@/components/CardView";
+import ModalView from "@/components/ModalView";
 
 const Search = () => {
   const { subject } = useLocalSearchParams();
   const [data, setData] = useState<Book[]>([]);
   const [loading, setLoading] = useState(true);
+  const [modalVisible, setModalVisible] = useState(false);
+  const [modalData, setModalData] = useState<Book>();
 
   const fetchData = async () => {
     try {
       const response = await getBooksBySubject(subject);
       setData(response);
     } catch (error) {
+      console.log(error);
       Alert.alert("Error", error.message);
     } finally {
       setLoading(false);
@@ -25,8 +29,9 @@ const Search = () => {
   };
 
   const handleClick = (book: Book) => {
-    // TODO: load modal or router push to book details screen
     console.log(book);
+    setModalData(book);
+    setModalVisible(true);
   };
 
   useEffect(() => {
@@ -44,19 +49,30 @@ const Search = () => {
           />
         </View>
       ) : (
-        <FlatList
-          data={data}
-          keyExtractor={(item) => item.id}
-          renderItem={({ item }) => (
-            <CardView
-              title={item.title}
-              rating={item.rating}
-              coverUrl={item.coverUrl}
-              onClick={() => handleClick(item)}
+        <View>
+          <FlatList
+            data={data}
+            keyExtractor={(item) => item.id}
+            renderItem={({ item }) => (
+              <View>
+                <CardView
+                  title={item.title}
+                  rating={item.rating}
+                  coverUrl={item.coverUrl}
+                  onClick={() => handleClick(item)}
+                />
+              </View>
+            )}
+            numColumns={2}
+          />
+          {modalData && (
+            <ModalView
+              modalVisible={modalVisible}
+              setModalVisible={setModalVisible}
+              book={modalData}
             />
           )}
-          numColumns={2}
-        />
+        </View>
       )}
     </SafeAreaView>
   );
