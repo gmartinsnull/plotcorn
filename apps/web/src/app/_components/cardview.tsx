@@ -20,7 +20,7 @@ const CardView = ({ book }: { book: Book }) => {
 
         <div className="flex h-1/5 content-end items-center">
           <div className="w-full flex-col px-1">
-            <p>{book.title}</p>
+            <p className="line-clamp-2">{book.title}</p>
             <Rating rating={book.rating} />
           </div>
         </div>
