@@ -23,9 +23,9 @@ export default async function Page({
             href={`/item/${book.id}?title=${book.title}&author=${book.author}&year=${book.year}&pages=${book.pages}&rating=${book.rating}&coverUrl=${book.coverUrl}`}
           >
             <Image
-              className="h-4/5 w-full rounded"
+              className="h-4/5 w-full rounded-t"
               src={book.coverUrl}
-              style={{ objectFit: "contain" }}
+              style={{ objectFit: "cover" }}
               alt={book.title}
               width={200}
               height={300}

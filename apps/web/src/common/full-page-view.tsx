@@ -19,8 +19,8 @@ export default async function FullPageView(props: { bookId: string }) {
   };
 
   return (
-    <div className="flex h-full w-screen min-w-0 items-center justify-center text-white">
-      <div className="flex flex-shrink flex-grow justify-center">
+    <div className="flex h-[calc(100vh-74px)] w-screen min-w-0 items-center justify-center text-white">
+      <div className="flex flex-shrink flex-grow justify-center items-center">
         <Image
           src={book.coverUrl}
           alt={book.title}

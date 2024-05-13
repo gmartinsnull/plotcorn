@@ -38,18 +38,18 @@ export function ComboboxCategory() {
           size={"sm"}
           role="combobox"
           aria-expanded={open}
-          aria-label="Select Category"
+          aria-label="Select subject"
           className="w-[200px] justify-between dark:text-white"
         >
           {value
             ? categories.find((category) => category.value === value)?.label
-            : "Select Category"}
+            : "Select subject"}
           <ChevronsUpDown className="ml-2 hidden h-4 w-4 shrink-0 opacity-50 lg:block" />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-[200px] p-0">
         <Command>
-          <CommandInput placeholder="Search category..." />
+          <CommandInput placeholder="Search subject..." />
           <CommandList>
             <CommandEmpty>No category found.</CommandEmpty>
             <CommandGroup>
