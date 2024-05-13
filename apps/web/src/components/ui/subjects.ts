@@ -164,7 +164,7 @@ export const subjects = [
     label: "Entrepreneurship",
   },
   {
-    value: "bunsiness__economics",
+    value: "business__economics",
     label: "Business Economics",
   },
   {
