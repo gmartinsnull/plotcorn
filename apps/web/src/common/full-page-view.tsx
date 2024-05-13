@@ -19,18 +19,20 @@ export default async function FullPageView(props: { bookId: string }) {
   };
 
   return (
-    <div className="flex h-[calc(100vh-74px)] w-screen min-w-0 items-center justify-center text-white">
-      <div className="flex flex-shrink flex-grow justify-center items-center">
+    <div className="flex h-[calc(100vh-74px)] w-full min-w-0 items-center justify-center text-white">
+      <div className="flex flex-shrink flex-grow items-center justify-center">
         <Image
           src={book.coverUrl}
           alt={book.title}
           style={{ objectFit: "contain" }}
-          width={200}
-          height={300}
+          width={300}
+          height={400}
         />
       </div>
       <div className="flex h-full w-2/6 flex-shrink-0 flex-col border-l">
-        <div className="border-b p-2 text-center text-xl">{book.title}</div>
+        <div className="border-b px-2 py-5 text-center text-3xl font-bold">
+          {book.title}
+        </div>
         <div className="p-2">
           <div>Author:</div>
           <div>{book.author}</div>
