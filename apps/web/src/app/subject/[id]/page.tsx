@@ -1,7 +1,4 @@
 import { Book } from "@/types/book";
-import Image from "next/image";
-import { Rating } from "@/components/rating";
-import Link from "next/link";
 import CardView from "@/app/_components/cardview";
 
 export default async function Page({
