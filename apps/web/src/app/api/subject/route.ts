@@ -3,7 +3,11 @@ import { subjects } from "@/components/ui/subjects";
 export const dynamic = "force-dynamic"; // defaults to auto
 export async function GET() {
   try {
-    const result = subjects.sort((a, b) => a.label.localeCompare(b.label));
+    const result = subjects.sort((a, b) =>
+      a.label.toLowerCase().localeCompare(b.label.toLowerCase()),
+    );
+
+    console.log(result);
 
     return Response.json(result);
   } catch (error) {

@@ -28,7 +28,9 @@ export function ComboboxCategory() {
 
   const router = useRouter();
 
-  const categories = subjects.sort((a, b) => a.value.localeCompare(b.value));
+  const categories = subjects.sort((a, b) =>
+    a.label.toLowerCase().localeCompare(b.label.toLowerCase()),
+  );
 
   return (
     <Popover open={open} onOpenChange={setOpen}>

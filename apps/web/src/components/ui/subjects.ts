@@ -164,7 +164,7 @@ export const subjects = [
     label: "Entrepreneurship",
   },
   {
-    value: "buniness_economics",
+    value: "buniness__economics",
     label: "Business Economics",
   },
   {
@@ -172,7 +172,7 @@ export const subjects = [
     label: "Business Success",
   },
   {
-    value: "finace",
+    value: "finance",
     label: "Finance",
   },
   {
@@ -218,10 +218,6 @@ export const subjects = [
   {
     value: "world_war_ii",
     label: "World War II",
-  },
-  {
-    value: "social_life_and_customs",
-    label: "Social Life and Customs",
   },
   {
     value: "cooking",
