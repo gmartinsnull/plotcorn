@@ -3,12 +3,9 @@ import Image from "next/image";
 import { Rating } from "@/components/rating";
 import { Book } from "@/types/book";
 
-const CardView = ({ index, book }: { index: number; book: Book }) => {
+const CardView = ({ book }: { book: Book }) => {
   return (
-    <div
-      key={index}
-      className="h-96 w-52 flex-col justify-between rounded-xl bg-gray-300"
-    >
+    <div className="h-96 w-52 flex-col justify-between rounded-xl bg-gray-300">
       <Link
         href={`/item/${book.id}?title=${book.title}&author=${book.author}&year=${book.year}&pages=${book.pages}&rating=${book.rating}&coverUrl=${book.coverUrl}`}
       >
@@ -22,7 +19,7 @@ const CardView = ({ index, book }: { index: number; book: Book }) => {
         />
 
         <div className="flex h-1/5 content-end items-center">
-          <div className="flex-col w-full px-1">
+          <div className="w-full flex-col px-1">
             <p>{book.title}</p>
             <Rating rating={book.rating} />
           </div>

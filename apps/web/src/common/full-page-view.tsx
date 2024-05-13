@@ -5,7 +5,7 @@ import { Book } from "@/types/book";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 
-export default async function FullPageView(props: { bookId: string }) {
+export default function FullPageView(props: { bookId: string }) {
   const params = useSearchParams();
 
   const book: Book = {

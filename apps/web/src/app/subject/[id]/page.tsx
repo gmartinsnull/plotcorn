@@ -13,7 +13,7 @@ export default async function Page({
   return (
     <div className="flex flex-wrap justify-center gap-4 rounded p-4">
       {books.map((book: Book, index: number) => (
-        <CardView index={index} book={book} />
+        <CardView key={index} book={book} />
       ))}
     </div>
   );
