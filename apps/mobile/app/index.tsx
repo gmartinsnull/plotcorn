@@ -1,24 +1,44 @@
-import { View, Text, FlatList } from "react-native";
+import { View, Text, FlatList, Alert, RefreshControl } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Searchbar } from "react-native-paper";
 import ListItem from "@/components/ListItem";
-import { subjects } from "subjects-pkg";
 import { router } from "expo-router";
+import { getSubjects } from "@/api/books-api";
+import LoadingView from "@/components/LoadingView";
 
 export default function App() {
   const [subject, setSubject] = useState("");
-  const [items, setItems] = useState(subjects);
+  const [items, setItems] = useState([]);
+  const [filteredItems, setFilteredItems] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const searchItem = (query) => {
     if (query.length < 3) {
       setSubject(query);
-      setItems(subjects);
+      setItems(items);
       return;
     }
     setSubject(query);
-    setItems(items.filter((item) => item.label.includes(query)));
+    const filteredItems = items.filter((item) => item.label.includes(query));
+    setFilteredItems(filteredItems);
   };
+
+  const fetchData = async () => {
+    try {
+      const response = await getSubjects();
+      setItems(response);
+    } catch (error) {
+      console.log(error);
+      Alert.alert("Error fetching subjects", error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <SafeAreaView className="h-full">
@@ -33,19 +53,26 @@ export default function App() {
           value={subject}
         />
       </View>
-      <FlatList
-        data={items.sort((a, b) => a.label.localeCompare(b.label))}
-        keyExtractor={(item) => item.value}
-        keyboardShouldPersistTaps="handled"
-        renderItem={({ item }) => (
-          <ListItem
-            title={item.label}
-            selected={() => {
-              router.push(`/search/${item.value}`);
-            }}
-          />
-        )}
-      />
+      {loading && items.length === 0 ? (
+        <LoadingView />
+      ) : (
+        <FlatList
+          data={subject.length < 3 ? items : filteredItems}
+          keyExtractor={(item) => item.value}
+          keyboardShouldPersistTaps="handled"
+          renderItem={({ item }) => (
+            <ListItem
+              title={item.label}
+              selected={() => {
+                router.push(`/search/${item.value}`);
+              }}
+            />
+          )}
+          refreshControl={
+            <RefreshControl refreshing={loading} onRefresh={fetchData} />
+          }
+        />
+      )}
     </SafeAreaView>
   );
 }

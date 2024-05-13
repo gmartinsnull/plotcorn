@@ -1,13 +1,13 @@
 import { View, Alert, FlatList } from "react-native";
 import { useLocalSearchParams } from "expo-router";
 import { getBooksBySubject } from "@/api/books-api";
-import { ActivityIndicator, MD2Colors } from "react-native-paper";
 import { useEffect, useState } from "react";
 import { Book } from "subjects-pkg/Book";
 
 import { SafeAreaView } from "react-native-safe-area-context";
 import CardView from "@/components/CardView";
 import ModalView from "@/components/ModalView";
+import LoadingView from "@/components/LoadingView";
 
 const Search = () => {
   const { subject } = useLocalSearchParams();
@@ -22,7 +22,7 @@ const Search = () => {
       setData(response);
     } catch (error) {
       console.log(error);
-      Alert.alert("Error", error.message);
+      Alert.alert("Error fetching books", error.message);
     } finally {
       setLoading(false);
     }
@@ -40,15 +40,9 @@ const Search = () => {
   return (
     <SafeAreaView className="mt-2 h-full items-center">
       {loading && data.length === 0 ? (
-        <View className="h-full items-center justify-center">
-          <ActivityIndicator
-            animating={true}
-            color={MD2Colors.white}
-            size="large"
-          />
-        </View>
+        <LoadingView />
       ) : (
-        <View>
+        <>
           <FlatList
             data={data}
             keyExtractor={(item) => item.id}
@@ -71,7 +65,7 @@ const Search = () => {
               book={modalData}
             />
           )}
-        </View>
+        </>
       )}
     </SafeAreaView>
   );
