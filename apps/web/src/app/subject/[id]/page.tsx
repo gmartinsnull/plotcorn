@@ -6,9 +6,12 @@ export default async function Page({
 }: {
   params: { id: string };
 }) {
-  const books: Book[] = await fetch(`${process.env.URL}/api/subject/${id}`, {
-    cache: "no-store",
-  }).then((res) => res.json());
+  const books: Book[] = await fetch(
+    `${process.env.BASE_URL}/api/subject/${id}`,
+    {
+      cache: "no-store",
+    },
+  ).then((res) => res.json());
 
   return (
     <div className="flex flex-wrap justify-center gap-4 rounded p-4">
