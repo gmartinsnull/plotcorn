@@ -1,4 +1,4 @@
-import { Book } from "@/types/book";
+import { Book } from "subjects-pkg/Book";
 import { Doc } from "@/types/doc";
 
 export const dynamic = "force-dynamic"; // defaults to auto
