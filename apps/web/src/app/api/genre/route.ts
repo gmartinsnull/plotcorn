@@ -1,4 +1,4 @@
-import { Genre } from "movies-pkg/Genre";
+import { Genre } from "movies-pkg/genre";
 export const dynamic = "force-dynamic"; // defaults to auto
 export async function GET() {
   try {

@@ -1,4 +1,4 @@
-import { Movie } from "movies-pkg/Movie";
+import { Movie } from "movies-pkg/movie";
 export const dynamic = "force-dynamic"; // defaults to auto
 export async function GET(
   request: Request,
