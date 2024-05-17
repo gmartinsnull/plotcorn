@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 import { Searchbar } from "react-native-paper";
 import ListItem from "@/components/ListItem";
 import { router } from "expo-router";
-import { getSubjects } from "@/api/books-api";
+import { getGenres } from "@/api/books-api";
 import LoadingView from "@/components/LoadingView";
 
-export default function App() {
+export default function Movies() {
   const [subject, setSubject] = useState("");
   const [items, setItems] = useState([]);
   const [filteredItems, setFilteredItems] = useState([]);
@@ -26,7 +26,7 @@ export default function App() {
 
   const fetchData = async () => {
     try {
-      const response = await getSubjects();
+      const response = await getGenres();
       setItems(response);
     } catch (error) {
       console.log(error);
@@ -58,13 +58,13 @@ export default function App() {
       ) : (
         <FlatList
           data={subject.length < 3 ? items : filteredItems}
-          keyExtractor={(item) => item.value}
+          keyExtractor={(item) => item.name}
           keyboardShouldPersistTaps="handled"
           renderItem={({ item }) => (
             <ListItem
-              title={item.label}
+              title={item.name}
               selected={() => {
-                router.push(`/search/${item.value}`);
+                router.push(`/search/${item.name}`);
               }}
             />
           )}
