@@ -19,8 +19,8 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
-      "subjects-pkg": ["../packages/subjects-pkg/"],
-      "movies-pkg": ["../packages/movies-pkg/"]
+      "subjects-pkg": ["../../packages/subjects-pkg"],
+      "movies-pkg": ["../../packages/movies-pkg"]
     }
   },
   "include": [
