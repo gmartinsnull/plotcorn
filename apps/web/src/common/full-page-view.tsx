@@ -1,7 +1,7 @@
 "use client";
 
 import { Rating } from "@/components/rating";
-import { Book } from "@/types/book";
+import { Book } from "subjects-pkg";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 
