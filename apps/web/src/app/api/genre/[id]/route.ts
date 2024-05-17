@@ -29,7 +29,7 @@ export async function GET(
         title: item.title,
         poster_path: `https://image.tmdb.org/t/p/w500${item.poster_path}`,
         vote_average: item.vote_average / 2,
-        release: item.release_date.split("-")[0],
+        release_date: item.release_date.split("-")[0],
         overview: item.overview,
       }));
 

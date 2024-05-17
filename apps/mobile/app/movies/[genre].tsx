@@ -63,7 +63,12 @@ const SearchMovies = () => {
             <ModalView
               modalVisible={modalVisible}
               setModalVisible={setModalVisible}
-              book={modalData}
+              title={modalData.title}
+              coverUrl={modalData.poster_path}
+              author={[]}
+              year={modalData.release_date}
+              rating={modalData.vote_average}
+              pages={0}
             />
           )}
         </>

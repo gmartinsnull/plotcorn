@@ -62,7 +62,12 @@ const SearchBooks = () => {
             <ModalView
               modalVisible={modalVisible}
               setModalVisible={setModalVisible}
-              book={modalData}
+              title={modalData.title}
+              coverUrl={modalData.coverUrl}
+              author={modalData.author}
+              year={modalData.year}
+              rating={modalData.rating}
+              pages={modalData.pages}
             />
           )}
         </>
