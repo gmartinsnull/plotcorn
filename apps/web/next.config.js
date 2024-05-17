@@ -11,4 +11,7 @@ module.exports = {
     ],
   },
   transpilePackages: ["packages/movies-pkg", "packages/subjects-pkg"],
+  experimental: {
+    externalDir: true,
+  },
 };
