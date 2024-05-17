@@ -10,5 +10,5 @@ module.exports = {
       },
     ],
   },
-  transpilePackages: ["@packages/movies-pkg", "@packages/subjects-pkg"],
+  transpilePackages: ["packages/movies-pkg", "packages/subjects-pkg"],
 };
