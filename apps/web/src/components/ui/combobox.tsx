@@ -18,13 +18,14 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-
 import { useRouter } from "next/navigation";
 
 export function ComboboxCategory({
   items,
+  type,
 }: {
   items: { value: string; label: string }[];
+  type: "subject" | "genre";
 }) {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState("");
@@ -63,8 +64,9 @@ export function ComboboxCategory({
                       currentValue === value ? "" : currentValue;
                     setValue(selectedValue);
                     setOpen(false);
-
-                    router.push(`/subject/${selectedValue}`);
+                    type === "subject"
+                      ? router.push(`/subject/${selectedValue}`)
+                      : router.push(`/genre/${selectedValue}`);
                   }}
                 >
                   <Check

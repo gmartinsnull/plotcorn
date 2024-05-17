@@ -7,8 +7,6 @@ export async function GET() {
       a.label.toLowerCase().localeCompare(b.label.toLowerCase()),
     );
 
-    console.log(result);
-
     return Response.json(result);
   } catch (error) {
     console.log(error);

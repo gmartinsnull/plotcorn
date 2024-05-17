@@ -8,6 +8,12 @@ module.exports = {
         port: "",
         pathname: "/b/id/**",
       },
+      {
+        protocol: "https",
+        hostname: "image.tmdb.org",
+        port: "",
+        pathname: "/t/p/w500/**",
+      },
     ],
   },
   transpilePackages: [

@@ -23,10 +23,10 @@ export function TopNav({
           </TabsTrigger>
         </TabsList>
         <TabsContent value="books">
-          <ComboboxCategory items={subjects} />
+          <ComboboxCategory items={subjects} type="subject" />
         </TabsContent>
         <TabsContent value="movies">
-          <ComboboxCategory items={genres} />
+          <ComboboxCategory items={genres} type="genre" />
         </TabsContent>
       </Tabs>
     </nav>

@@ -1,13 +1,13 @@
-import { Book } from "subjects-pkg";
 import CardView from "@/app/_components/cardview";
+import { Movie } from "movies-pkg";
 
 export default async function Page({
   params: { id },
 }: {
   params: { id: string };
 }) {
-  const books: Book[] = await fetch(
-    `${process.env.BASE_URL}/api/subject/${id}`,
+  const books: Movie[] = await fetch(
+    `${process.env.BASE_URL}/api/genre/${id}`,
     {
       cache: "no-store",
     },
@@ -15,8 +15,8 @@ export default async function Page({
 
   return (
     <div className="flex flex-wrap justify-center gap-4 rounded p-4">
-      {books.map((book: Book, index: number) => (
-        <CardView key={index} item={book} type="book" />
+      {books.map((movie: Movie, index: number) => (
+        <CardView key={index} item={movie} type="movie" />
       ))}
     </div>
   );
