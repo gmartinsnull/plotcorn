@@ -1,24 +1,25 @@
 import { View, Alert, FlatList } from "react-native";
 import { useLocalSearchParams } from "expo-router";
-import { getBooksBySubject } from "@/api/books-api";
+import { getMoviesByGenre } from "@/api/books-api";
 import { useEffect, useState } from "react";
-import { Book } from "subjects-pkg/Book";
+import { Movie } from "movies-pkg";
 
 import { SafeAreaView } from "react-native-safe-area-context";
 import CardView from "@/components/CardView";
 import ModalView from "@/components/ModalView";
 import LoadingView from "@/components/LoadingView";
 
-const Search = () => {
-  const { subject } = useLocalSearchParams();
-  const [data, setData] = useState<Book[]>([]);
+const SearchMovies = () => {
+  const { genre } = useLocalSearchParams();
+  const [data, setData] = useState<Movie[]>([]);
   const [loading, setLoading] = useState(true);
   const [modalVisible, setModalVisible] = useState(false);
-  const [modalData, setModalData] = useState<Book>();
+  const [modalData, setModalData] = useState<Movie>();
 
   const fetchData = async () => {
     try {
-      const response = await getBooksBySubject(subject);
+      const response = await getMoviesByGenre(genre);
+      console.log(response);
       setData(response);
     } catch (error) {
       console.log(error);
@@ -28,8 +29,8 @@ const Search = () => {
     }
   };
 
-  const handleClick = (book: Book) => {
-    setModalData(book);
+  const handleClick = (movie: Movie) => {
+    setModalData(movie);
     setModalVisible(true);
   };
 
@@ -45,13 +46,13 @@ const Search = () => {
         <>
           <FlatList
             data={data}
-            keyExtractor={(item) => item.id}
+            keyExtractor={(item) => item.id.toString()}
             renderItem={({ item }) => (
               <View>
                 <CardView
                   title={item.title}
-                  rating={item.rating}
-                  coverUrl={item.coverUrl}
+                  rating={item.vote_average}
+                  coverUrl={item.poster_path}
                   onClick={() => handleClick(item)}
                 />
               </View>
@@ -71,4 +72,4 @@ const Search = () => {
   );
 };
 
-export default Search;
+export default SearchMovies;

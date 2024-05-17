@@ -64,7 +64,7 @@ export default function Movies() {
             <ListItem
               title={item.name}
               selected={() => {
-                router.push(`/search/${item.name}`);
+                router.push(`/movies/${item.id}`);
               }}
             />
           )}

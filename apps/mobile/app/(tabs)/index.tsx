@@ -64,7 +64,7 @@ export default function Home() {
             <ListItem
               title={item.label}
               selected={() => {
-                router.push(`/search/${item.value}`);
+                router.push(`/books/${item.value}`);
               }}
             />
           )}

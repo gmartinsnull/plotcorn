@@ -27,9 +27,9 @@ export async function GET(
       .map((item) => ({
         id: item.id,
         title: item.title,
-        coverUrl: `https://image.tmdb.org/t/p/w500/${item.poster_path}.jpg`,
-        rating: item.vote_average,
-        year: item.release_date.split("-")[0],
+        poster_path: `https://image.tmdb.org/t/p/w500${item.poster_path}`,
+        vote_average: item.vote_average / 2,
+        release: item.release_date.split("-")[0],
         overview: item.overview,
       }));
 
