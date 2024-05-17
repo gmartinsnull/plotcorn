@@ -19,7 +19,8 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
-      "packages/*": ["../../packages/*"]
+      "subjects-pkg": ["../packages/subjects-pkg/"],
+      "genre-pkg": ["../packages/genre-pkg/"]
     }
   },
   "include": [
