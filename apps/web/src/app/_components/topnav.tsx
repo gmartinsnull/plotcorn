@@ -1,9 +1,34 @@
 import { ComboboxCategory } from "@/components/ui/combobox";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-export function TopNav() {
+export function TopNav({
+  subjects,
+  genres,
+}: {
+  subjects: { value: string; label: string }[];
+  genres: { value: string; label: string }[];
+}) {
   return (
-    <nav className="flex h-[74px] w-full items-center justify-center border-b p-4 text-xl font-semibold">
-      <ComboboxCategory />
+    <nav className="flex h-[120px] w-full items-center justify-center border-b p-4">
+      <Tabs
+        defaultValue="books"
+        className="h-full w-fit flex-col justify-items-center"
+      >
+        <TabsList>
+          <TabsTrigger value="books" className="w-[150px]">
+            Books
+          </TabsTrigger>
+          <TabsTrigger value="movies" className="w-[150px]">
+            Movies
+          </TabsTrigger>
+        </TabsList>
+        <TabsContent value="books">
+          <ComboboxCategory items={subjects} />
+        </TabsContent>
+        <TabsContent value="movies">
+          <ComboboxCategory items={genres} />
+        </TabsContent>
+      </Tabs>
     </nav>
   );
 }

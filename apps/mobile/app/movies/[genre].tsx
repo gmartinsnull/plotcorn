@@ -19,7 +19,6 @@ const SearchMovies = () => {
   const fetchData = async () => {
     try {
       const response = await getMoviesByGenre(genre);
-      console.log(response);
       setData(response);
     } catch (error) {
       console.log(error);

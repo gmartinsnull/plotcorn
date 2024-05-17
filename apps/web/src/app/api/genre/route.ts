@@ -11,9 +11,7 @@ export async function GET() {
       },
     );
 
-    const items: Genre[] = await res.json().then((json) => {
-      return json.genres;
-    });
+    const items: Genre[] = await res.json().then((res) => res.genres);
 
     return Response.json(items);
   } catch (error) {

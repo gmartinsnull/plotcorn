@@ -19,18 +19,17 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 
-import { subjects } from "@/components/ui/subjects";
 import { useRouter } from "next/navigation";
 
-export function ComboboxCategory() {
+export function ComboboxCategory({
+  items,
+}: {
+  items: { value: string; label: string }[];
+}) {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState("");
 
   const router = useRouter();
-
-  const categories = subjects.sort((a, b) =>
-    a.label.toLowerCase().localeCompare(b.label.toLowerCase()),
-  );
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -41,21 +40,21 @@ export function ComboboxCategory() {
           role="combobox"
           aria-expanded={open}
           aria-label="Select subject"
-          className="w-[200px] justify-between dark:text-white"
+          className="w-[310px] justify-between dark:text-white"
         >
           {value
-            ? categories.find((category) => category.value === value)?.label
-            : "Select subject"}
+            ? items.find((category) => category.value === value)?.label
+            : "Select item"}
           <ChevronsUpDown className="ml-2 hidden h-4 w-4 shrink-0 opacity-50 lg:block" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[200px] p-0">
+      <PopoverContent className="w-[300px] p-0">
         <Command>
           <CommandInput placeholder="Search subject..." />
           <CommandList>
             <CommandEmpty>No category found.</CommandEmpty>
             <CommandGroup>
-              {subjects.map((category) => (
+              {items.map((category) => (
                 <CommandItem
                   key={category.value}
                   value={category.value}
