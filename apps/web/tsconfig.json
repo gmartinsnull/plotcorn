@@ -20,7 +20,8 @@
     "paths": {
       "@/*": ["./src/*"],
       "subjects-pkg": ["../../../packages/subjects-pkg/*"],
-      "movies-pkg": ["../../../packages/movies-pkg/*"]
+      "movies-pkg": ["../../../packages/movies-pkg/*"],
+      "genre-pkg": ["../../../packages/genre-pkg/*"]
     }
   },
   "include": [

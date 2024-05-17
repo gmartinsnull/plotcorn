@@ -5,5 +5,10 @@
   "workspaces": [
     "apps/*",
     "packages/*"
-  ]
+  ],
+  "scripts": {
+    "start": "yarn --cwd apps/web start",
+    "next": "yarn --cwd apps/web-app dev",
+    "dev": "npm-run-all --parallel start next"
+  }
 }

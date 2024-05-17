@@ -1,5 +1,5 @@
 {
-  "name": "movies-pkg",
+  "name": "genre-pkg",
   "version": "1.0.0",
   "include": [
     "**/*.ts",

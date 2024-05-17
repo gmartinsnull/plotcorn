@@ -10,7 +10,11 @@ module.exports = {
       },
     ],
   },
-  transpilePackages: ["packages/movies-pkg", "packages/subjects-pkg"],
+  transpilePackages: [
+    "@plotcorn/packages/movies-pkg",
+    "@plotcorn/packages/subjects-pkg",
+    "@pllotcorn/packages/genre-pkg",
+  ],
   experimental: {
     externalDir: true,
   },
