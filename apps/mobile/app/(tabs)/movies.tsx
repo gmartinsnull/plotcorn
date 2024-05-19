@@ -41,13 +41,13 @@ export default function Movies() {
   }, []);
 
   return (
-    <SafeAreaView className="h-full">
-      <View className="items-center bg-black px-4">
+    <SafeAreaView className="h-full bg-black">
+      <View className="items-center px-4">
         <Text className="my-7 text-2xl font-bold text-white">
           Select a subject:
         </Text>
         <Searchbar
-          className="mb-5"
+          className="mb-5 w-full"
           placeholder="Search a subject"
           onChangeText={(item) => searchItem(item)}
           value={subject}

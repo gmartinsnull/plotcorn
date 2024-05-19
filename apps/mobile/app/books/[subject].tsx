@@ -38,7 +38,7 @@ const SearchBooks = () => {
   }, []);
 
   return (
-    <SafeAreaView className="mt-2 h-full items-center">
+    <SafeAreaView className="h-screen items-center bg-black">
       {loading && data.length === 0 ? (
         <LoadingView />
       ) : (

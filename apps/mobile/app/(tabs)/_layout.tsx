@@ -10,7 +10,8 @@ export default function TabLayout() {
           tabBarActiveTintColor: "white",
           tabBarStyle: {
             borderTopWidth: 1,
-            height: 64,
+            paddingVertical: 10,
+            backgroundColor: "black",
           },
           tabBarHideOnKeyboard: true,
         }}
