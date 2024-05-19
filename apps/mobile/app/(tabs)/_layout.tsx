@@ -1,6 +1,20 @@
-import FontAwesome from "@expo/vector-icons/FontAwesome";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { Tabs } from "expo-router";
+import { View, Text } from "react-native";
+
+const TabIcon = ({ icon, color, name, focused }) => {
+  return (
+    <View className="flex items-center justify-center">
+      <MaterialCommunityIcons name={icon} size={28} color={color} />
+      <Text
+        className={`${focused ? "font-psemibold" : "font-pregular"} text-xs`}
+        style={{ color: color }}
+      >
+        {name}
+      </Text>
+    </View>
+  );
+};
 
 export default function TabLayout() {
   return (
@@ -14,6 +28,7 @@ export default function TabLayout() {
             backgroundColor: "black",
           },
           tabBarHideOnKeyboard: true,
+          tabBarShowLabel: false,
         }}
       >
         <Tabs.Screen
@@ -22,7 +37,12 @@ export default function TabLayout() {
             title: "Books",
             headerShown: false,
             tabBarIcon: ({ color }) => (
-              <FontAwesome size={28} name="book" color={color} />
+              <TabIcon
+                icon="book-open-variant"
+                color={color}
+                name="Books"
+                focused={undefined}
+              />
             ),
           }}
         />
@@ -32,10 +52,11 @@ export default function TabLayout() {
             title: "Movies",
             headerShown: false,
             tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons
-                name="movie-open-outline"
-                size={28}
+              <TabIcon
+                icon="movie-open-outline"
                 color={color}
+                name="Movies"
+                focused={undefined}
               />
             ),
           }}
