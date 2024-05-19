@@ -38,7 +38,7 @@ const SearchMovies = () => {
   }, []);
 
   return (
-    <SafeAreaView className="h-screen items-center bg-black">
+    <SafeAreaView className="h-full items-center bg-black">
       {loading && data.length === 0 ? (
         <LoadingView />
       ) : (
